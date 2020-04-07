@@ -11,7 +11,6 @@ public class UI {
     private List<String> options = Arrays.asList("SinglePlayer", "Multiplayer", "Simulation", "Exit");
     private List<String> difficulties = Arrays.asList("Easy", "Medium", "Hard");
     // private Player player = new Player(null);
-}
 
   public void printList(List<String> list) {
         System.out.println();
@@ -41,7 +40,7 @@ public class UI {
         System.out.print("|");
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
-                System.out.print(" " + gameBoard[i][j].getSign());
+                System.out.print(" " + gameBoard[i][j].getStatusSign());
                 iterator++;
                 if (iterator % 10 == 0) {
                     System.out.println(" |");
@@ -75,8 +74,8 @@ public void start() {
                         System.out.println("Player vs AI");
                         
                         System.out.println("Enter Player's name :");
-                        player.setPlayer1(new Player(getString()));
-                        player.setPlayer2(new Player("Bot"));
+                        // player.setPlayer1(new Player(getString()));
+                        // player.setPlayer2(new Player("Bot"));
                         printList(difficulties);
                         Integer difficulty = getInt();
    
@@ -84,13 +83,13 @@ public void start() {
                 }
                 case 2:
                 {   System.out.println("Enter Player 1 name :");
-                    player.setPlayer1(new Player(getString()));
+                    // player.setPlayer1(new Player(getString()));
     
-                    System.out.println("Enter Player 2 name :");
-                    player.setPlayer2(new Player(getString()));
-                    printList(difficulties);
-                    Integer difficulty = getInt();
-                    Game.switchDifficulty(difficulty);
+                    // System.out.println("Enter Player 2 name :");
+                    // player.setPlayer2(new Player(getString()));
+                    // printList(difficulties);
+                    // Integer difficulty = getInt();
+                    // Game.switchDifficulty(difficulty);
                 
                     break;
                 }
