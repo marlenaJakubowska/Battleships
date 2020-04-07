@@ -51,4 +51,13 @@ public class UI {
         }
         System.out.println("---------------------|");        
     }
+
+ public void printMap(Map<String, Integer> map) {
+        System.out.println("Name of the ship (lenght): ");
+        int i = 1;
+        for (Map.Entry<String, Integer> entry : map.entrySet()) {
+            System.out.println(entry.getKey() + "(" + entry.getValue() + ")");
+            i = i + 1;
+        }
+    }
 }
