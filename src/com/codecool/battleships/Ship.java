@@ -42,3 +42,22 @@ public class Ship {
         return shipsLength;
     }
 
+
+    private void setShip(int length, int x, int y, Square [][] board) {
+        Square position;
+
+        for (int i = 0; i < length; i++) {
+
+            if (this.isHorizontal) {
+                position = new Square(x + i, y);
+                position.setSign(shipSign);
+                board[y][x + i] = position;
+            } else {
+                position = new Square(x, y + i);
+                position.setSign(shipSign);
+                board[y + i][x] = position;
+            }
+            this.shipSquares.add(position);
+        }
+    }
+
