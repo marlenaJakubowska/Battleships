@@ -1,5 +1,10 @@
 package com.codecool.battleships;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class Ship {
     int length;
     Boolean isHorizontal;
@@ -63,7 +68,7 @@ public class Ship {
 
     public Boolean checkIfSunked() {
         for (Square position : shipSquares) {
-            if (!position.getSign().equals("x")) {
+            if (!position.getStatusSign().equals("x")) {
                 return false;
             }
         }
