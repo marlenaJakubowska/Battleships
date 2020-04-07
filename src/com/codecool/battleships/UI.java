@@ -60,4 +60,57 @@ public class UI {
             i = i + 1;
         }
     }
+
+public void start() {
+        while (isRunning) {
+            printMainMenu();
+            int mainMenu = getInt();
+            if (mainMenu == 1) {
+                System.out.println("Select game type:");
+                printList(options);
+                int option = getInt();
+    
+                switch (option) {
+                    case 1: {
+                        System.out.println("Player vs AI");
+                        
+                        System.out.println("Enter Player's name :");
+                        player.setPlayer1(new Player(getString()));
+                        player.setPlayer2(new Player("Bot"));
+                        printList(difficulties);
+                        Integer difficulty = getInt();
+   
+                        break;
+                }
+                case 2:
+                {   System.out.println("Enter Player 1 name :");
+                    player.setPlayer1(new Player(getString()));
+    
+                    System.out.println("Enter Player 2 name :");
+                    player.setPlayer2(new Player(getString()));
+                    printList(difficulties);
+                    Integer difficulty = getInt();
+                    Game.switchDifficulty(difficulty);
+                
+                    break;
+                }
+                case 3:
+                {
+                    System.out.println("AI vs AI");
+                    break;            
+                }  
+                case 4:
+                {                
+                    input.close();
+                    isRunning = false;
+                }
+                default:
+                    break;
+                }
+            }
+            else if (mainMenu == 2) {
+                isRunning = false;
+            }
+        }
+    }
 }
