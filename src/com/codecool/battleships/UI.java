@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class UI {
     private Scanner input = new Scanner(System.in);
+    HumanPlayer humanPlayer = new HumanPlayer(0, getString());
     private Boolean isRunning = true;
     private List<String> options = Arrays.asList("SinglePlayer", "Multiplayer", "Simulation", "Exit");
     private List<String> difficulties = Arrays.asList("Easy", "Medium", "Hard");
@@ -40,7 +41,7 @@ public class UI {
         System.out.print("|");
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
-                System.out.print(" " + gameBoard[i][j].getStatusSign());
+                System.out.print(" " + gameBoard[i][j].getSquareStatus());
                 iterator++;
                 if (iterator % 10 == 0) {
                     System.out.println(" |");
@@ -72,12 +73,13 @@ public void start() {
                 switch (option) {
                     case 1: {
                         System.out.println("Player vs AI");
+                        System.out.println("Enter Player 1 name :");
                         
-                        System.out.println("Enter Player's name :");
-                        // player.setPlayer1(new Player(getString()));
+                        humanPlayer.setPlayerName(getString());
+                        System.out.println(humanPlayer.getPlayerName());
                         // player.setPlayer2(new Player("Bot"));
                         printList(difficulties);
-                        Integer difficulty = getInt();
+                        // Integer difficulty = getInt();
    
                         break;
                 }
