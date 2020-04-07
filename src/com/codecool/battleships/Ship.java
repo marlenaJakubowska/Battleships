@@ -55,11 +55,11 @@ public class Ship {
 
             if (this.isHorizontal) {
                 position = new Square(x + i, y);
-                position.setSign(shipSign);
+                position.setSquareStatus(shipSign);
                 board[y][x + i] = position;
             } else {
                 position = new Square(x, y + i);
-                position.setSign(shipSign);
+                position.setSquareStatus(shipSign);
                 board[y + i][x] = position;
             }
             this.shipSquares.add(position);
@@ -68,7 +68,7 @@ public class Ship {
 
     public Boolean checkIfSunked() {
         for (Square position : shipSquares) {
-            if (!position.getStatusSign().equals("x")) {
+            if (!position.getSquareStatus().equals("x")) {
                 return false;
             }
         }
