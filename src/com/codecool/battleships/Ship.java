@@ -61,3 +61,13 @@ public class Ship {
         }
     }
 
+    public Boolean checkIfSunked() {
+        for (Square position : shipSquares) {
+            if (!position.getSign().equals("x")) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
