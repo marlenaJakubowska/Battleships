@@ -15,3 +15,19 @@ public class Ship {
         this.isSunk = false;
         setShip(length, x, y, board);    
     }  
+    public void setXofShip(int x){
+        this.x = x;
+    }
+    public void setYofShip(int y){
+        this.y = y;
+    }
+    public int getXofShip(){
+        return x;
+    }
+    public int getYofShip(){
+        return y;
+    } 
+    public void sunk() {
+        this.isSunk = true;
+    }
+
