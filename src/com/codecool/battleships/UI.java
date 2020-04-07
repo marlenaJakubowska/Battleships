@@ -25,3 +25,13 @@ public class UI {
         System.out.println("2. Exit");
     }
     
+ public String getString() {
+        String userString = input.nextLine();
+        return userString;
+    }
+
+    public int getInt() {
+        String userInt = input.nextLine();
+        return Integer.parseInt(userInt);
+    }
+
