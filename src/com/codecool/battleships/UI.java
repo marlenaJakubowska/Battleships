@@ -35,3 +35,20 @@ public class UI {
         return Integer.parseInt(userInt);
     }
 
+   public void showGameBoard(Square[][] gameBoard) {
+        int iterator = 0;
+        System.out.println("|---------------------|");
+        System.out.print("|");
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                System.out.print(" " + gameBoard[i][j].getSign());
+                iterator++;
+                if (iterator % 10 == 0) {
+                    System.out.println(" |");
+                    System.out.print("|");
+                }
+            }
+        }
+        System.out.println("---------------------|");        
+    }
+}
