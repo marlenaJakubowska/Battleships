@@ -8,4 +8,12 @@ public class ComputerPlayer extends Player {
         super(player);
         this.difficultyLevel = difficultyLevel;
     }
+
+	public int getDifficultyLevel() {
+        return this.difficultyLevel;
+    }
+
+    public void setPlayerName(int difficultyLevel) {
+        this.difficultyLevel = difficultyLevel;
+    }
 }

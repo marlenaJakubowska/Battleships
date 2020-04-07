@@ -15,6 +15,5 @@ public class HumanPlayer extends Player {
 
     public void setPlayerName(String playerName) {
         this.playerName = playerName;
-
     }
 }
