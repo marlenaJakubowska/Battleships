@@ -3,7 +3,7 @@ package com.codecool.battleships;
 public class Main {
     
     public static void main(String args[]) {
-        Ui userInterface = new Ui();
+        UI userInterface = new UI();
         userInterface.start();
     }
 }
