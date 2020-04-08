@@ -6,17 +6,30 @@ import java.util.List;
 
 public class Ocean {
 
-    private List<Ship> ships = new ArrayList<>();
+    //private List<Ship> ships = new ArrayList<>();
+    private ArrayList<Square> boardSquaresList;
+    private ArrayList<Square> shipsSquaresList;
     private Square[][] board;
-    private int boardSize = 10;
+    private int boardSize;
 
-    public Ocean() {
-        this.board = new Square[boardSize][boardSize];
-        for (int i = 0; i < boardSize; i++) {
-            for (int j = 0; j < boardSize; j++) {
-                this.board[i][j] = new Square(i, j);
+    public Ocean(int boardSize) {
+        this.boardSize = boardSize;
+        this.boardSquaresList = new ArrayList<>();
+        this.board = createBoard(boardSize);
+
+    }
+
+    public Square[][] createBoard(int boardSize) {
+        board = new Square[boardSize][boardSize];
+        shipsSquaresList = new ArrayList<>();
+        for (int i=0; i<boardSize; i++) {
+            for (int j=0; j< boardSize; j++) {
+                Square area = new Square(i,j);
+                board[i][j] = area;
+                boardSquaresList.add(area);
             }
         }
+        return board;
     }
 
     public Square getSquare(int x, int y) {
