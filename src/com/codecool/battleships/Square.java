@@ -49,7 +49,7 @@ public class Square {
     }
 
     public String toString() {
-        String emptySign = "~";
+        String emptySign = "\uE43E";
         String shipSign = "\uD83D\uDEA2";
         String hitSign =  "\uE11D";
         String missedShotSign = "\uD83D\uDCA9";
