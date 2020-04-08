@@ -7,11 +7,12 @@ import java.util.Scanner;
 
 public class UI {
     private Scanner input = new Scanner(System.in);
-    HumanPlayer humanPlayer = new HumanPlayer(0, getString());
+    HumanPlayer humanPlayer = new HumanPlayer(1, null);
+    HumanPlayer humanPlayer2= new HumanPlayer(2, null);
+    ComputerPlayer computerPlayer = new ComputerPlayer(0, 0);
     private Boolean isRunning = true;
     private List<String> options = Arrays.asList("SinglePlayer", "Multiplayer", "Simulation", "Exit");
     private List<String> difficulties = Arrays.asList("Easy", "Medium", "Hard");
-    // private Player player = new Player(null);
 
   public void printList(List<String> list) {
         System.out.println();
@@ -73,26 +74,23 @@ public void start() {
                 switch (option) {
                     case 1: {
                         System.out.println("Player vs AI");
-                        System.out.println("Enter Player 1 name :");
-                        
+                        System.out.println("Enter Player name :");
                         humanPlayer.setPlayerName(getString());
-                        System.out.println(humanPlayer.getPlayerName());
+                        humanPlayer.setPlayerNumber(1);
+                        computerPlayer.setPlayerNumber(2);
+                        // System.out.println(humanPlayer.getPlayerName());
                         // player.setPlayer2(new Player("Bot"));
                         printList(difficulties);
-                        // Integer difficulty = getInt();
+                        int difficulty = getInt();
    
-                        break;
+                        break;  
                 }
                 case 2:
                 {   System.out.println("Enter Player 1 name :");
-                    // player.setPlayer1(new Player(getString()));
-    
-                    // System.out.println("Enter Player 2 name :");
-                    // player.setPlayer2(new Player(getString()));
-                    // printList(difficulties);
-                    // Integer difficulty = getInt();
-                    // Game.switchDifficulty(difficulty);
-                
+                    humanPlayer.setPlayerName(getString());
+                    System.out.println("Enter Player 2 name :");
+                    humanPlayer2.setPlayerName(getString());
+                  
                     break;
                 }
                 case 3:
