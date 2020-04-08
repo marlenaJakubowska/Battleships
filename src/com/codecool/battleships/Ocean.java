@@ -32,12 +32,42 @@ public class Ocean {
         return board;
     }
 
-    public Square getSquare(int x, int y) {
-        return board[x][y];
+    public void addSquareAreaToShipsSquaresList(Square area){
+        this.shipsSquaresList.add(area);
+    }
+
+    public int getBoardSize() {
+        return this.boardSize;
+    }
+
+    public Square getSquare(int coordinateX, int coordinateY) {
+        return this.getBoard()[coordinateX][coordinateY];
     }
 
     public Square[][] getBoard() {
-        return board;
+        return this.board;
+    }
+
+    public ArrayList<Square> getBoardSquaresList() {
+        return this.boardSquaresList;
+    }
+
+    public ArrayList<Square> getShipsSquaresList() {
+        return this.shipsSquaresList;
+    }
+
+    public void setAreaUnavailable(){
+        for (Square element :getShipsSquaresList()) {
+            for (int i = -1; i < 2; i++){
+                for (int j = -1; j <2; j++) {
+                    int coordinateX = element.getCoordinateX() + j;
+                    int coordinateY = element.getCoordinateY() + i;
+                    if (coordinateX >= 0 && coordinateX < 10 && coordinateY >= 0 && coordinateY < 10) {
+                        this.getBoard()[coordinateY][coordinateX].setUnavailable();
+                    }
+                }
+            }
+        }
     }
 
     public void placeShipOnBoard() {
@@ -48,13 +78,7 @@ public class Ocean {
         //to do
     }
 
-    public void getShipSquareList() {
-        //must return a list of ship's squares
-    }
 
-    public void setUnavailable(){
-        //sets squares unavailable
-    }
 
 
     // to be used later
