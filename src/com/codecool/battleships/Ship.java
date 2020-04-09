@@ -23,6 +23,10 @@ public class Ship {
         this.shipSquaresList = new ArrayList<>();
     }
 
+    public void addSquaretoShipSquaresList(Square area) {
+        this.shipSquaresList.add(area);
+    }
+
     public int getCoordinateX() {
         return this.coordinateX;
     }
@@ -56,6 +60,7 @@ public class Ship {
         shipTypeAndLength.put("Destroyer", 2);
         return shipTypeAndLength.get(this.getShipType());
     }
+
 }
 // TO BE CHANGED:
 
