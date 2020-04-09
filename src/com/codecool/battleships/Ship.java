@@ -22,6 +22,40 @@ public class Ship {
         this.shipType = shipType;
         this.shipSquaresList = new ArrayList<>();
     }
+
+    public int getCoordinateX() {
+        return this.coordinateX;
+    }
+
+    public int getCoordinateY() {
+        return this.coordinateY;
+    }
+
+    public int getShipLength() {
+        return this.shipLength;
+    }
+
+    public String getOrientation() {
+        return this.orientation;
+    }
+
+    public String getShipType() {
+        return this.shipType;
+    }
+
+    public ArrayList<Square> getShipSquaresList() {
+        return this.shipSquaresList;
+    }
+
+    public int getShipsLengthMap() {
+        Map<String, Integer> shipTypeAndLength = new HashMap<>();
+        shipTypeAndLength.put("Carrier", 5);
+        shipTypeAndLength.put("Battleship", 4);
+        shipTypeAndLength.put("Cruiser", 3);
+        shipTypeAndLength.put("Submarine", 3);
+        shipTypeAndLength.put("Destroyer", 2);
+        return shipTypeAndLength.get(this.getShipType());
+    }
 }
 // TO BE CHANGED:
 
@@ -30,13 +64,7 @@ public class Ship {
 //    }
 //    public void setYofShip(int y){
 //        this.y = y;
-//    }
-//    public int getXofShip(){
-//        return x;
-//    }
-//    public int getYofShip(){
-//        return y;
-//    }
+
 //    public void sunk() {
 //        this.isSunk = true;
 //    }
