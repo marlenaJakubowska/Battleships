@@ -8,7 +8,7 @@ public class Ocean {
 
     //private List<Ship> ships = new ArrayList<>();
     private ArrayList<Square> boardSquaresList;
-    private ArrayList<Square> shipsSquaresList;
+    private ArrayList<Square> shipsSquaresList = new ArrayList<>();
     private Square[][] board;
     private int boardSize;
 
@@ -70,9 +70,30 @@ public class Ocean {
         }
     }
 
-    public void placeShipOnBoard() {
-       //to do
+
+    //place ship on board and add to ships and boardsquare list. return true is ship placed
+    public boolean placeShipOnBoard(Ship shipToPlace) {
+        if (shipToPlace.getOrientation().equals("h")) {
+            for (int i = shipToPlace.getCoordinateX(); i < shipToPlace.getCoordinateX()
+                    + shipToPlace.getShipLength(); i++) {
+                this.getBoard()[shipToPlace.getCoordinateY()][i].setSquareStatus("ship");
+                Square area = this.getSquare(shipToPlace.getCoordinateY(), i);
+                shipToPlace.addSquaretoShipSquaresList(area);
+                this.addSquareAreaToShipsSquaresList(area);
+            }
+        } else if (shipToPlace.getOrientation().equals("v")) {
+            for (int i = shipToPlace.getCoordinateY(); i < shipToPlace.getCoordinateY()
+                    + shipToPlace.getShipLength(); i++) {
+                this.getBoard()[i][shipToPlace.getCoordinateX()].setSquareStatus("ship");
+                Square area = this.getSquare(i, shipToPlace.getCoordinateX());
+                shipToPlace.addSquaretoShipSquaresList(area);
+                this.addSquareAreaToShipsSquaresList(area);
+            }
+            return true;
+        }
+        return false;
     }
+
 
     public void checkIfPlacementAvailable() {
         //to do
