@@ -13,6 +13,7 @@ public class Ship {
     private String orientation;
     private String shipType;
     private ArrayList<Square> shipSquaresList;
+//    public static Map<String, Integer> shipTypeAndLength; //TEST
 
     Ship(int coordinateX, int coordinateY, int shipLength, String orientation, String shipType) {
         this.coordinateX = coordinateX;
@@ -51,15 +52,17 @@ public class Ship {
         return this.shipSquaresList;
     }
 
-    public int getShipsLengthMap() {
-        Map<String, Integer> shipTypeAndLength = new HashMap<>();
-        shipTypeAndLength.put("Carrier", 5);
-        shipTypeAndLength.put("Battleship", 4);
-        shipTypeAndLength.put("Cruiser", 3);
-        shipTypeAndLength.put("Submarine", 3);
-        shipTypeAndLength.put("Destroyer", 2);
-        return shipTypeAndLength.get(this.getShipType());
-    }
+//    //public static void getShipsLengthMap() {
+//    public static void createShipsLengthMap() {   //TEST
+//        // Map<String, Integer> shipTypeAndLength = new HashMap<>();  //TEST
+//        shipTypeAndLength = new HashMap<>();
+//        shipTypeAndLength.put("Carrier", 5);
+//        shipTypeAndLength.put("Battleship", 4);
+//        shipTypeAndLength.put("Cruiser", 3);
+//        shipTypeAndLength.put("Submarine", 3);
+//        shipTypeAndLength.put("Destroyer", 2);
+//        //return shipTypeAndLength.get(this.getShipType());  //TEST
+//    }
 
 }
 // TO BE CHANGED:
