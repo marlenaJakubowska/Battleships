@@ -18,7 +18,7 @@ public class Ship {
         this.coordinateX = coordinateX;
         this.coordinateY = coordinateY;
         this.shipLength = shipLength;
-        this.orientation = orientation.toLowerCase();
+        this.orientation = orientation.toUpperCase();
         this.shipType = shipType;
         this.shipSquaresList = new ArrayList<>();
     }
@@ -72,17 +72,6 @@ public class Ship {
 
 //    public void sunk() {
 //        this.isSunk = true;
-//    }
-//
-//  public Map<String, Integer> getShipsLength() {
-//        Map<String, Integer> shipsLength = new HashMap<>();
-//        shipsLength.put("Carrier", 5);
-//        shipsLength.put("Battleship", 4);
-//        shipsLength.put("Cruiser", 3);
-//        shipsLength.put("Submarine", 3);
-//        shipsLength.put("Destroyer", 2);
-//
-//        return shipsLength;
 //    }
 //
 //
