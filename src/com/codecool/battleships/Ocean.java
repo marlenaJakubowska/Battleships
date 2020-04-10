@@ -2,13 +2,13 @@ package com.codecool.battleships;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import java.lang.StringBuilder;
 
 public class Ocean {
 
-    //private List<Ship> ships = new ArrayList<>();
-    private ArrayList<Square> boardSquaresList;
-    private ArrayList<Square> shipsSquaresList = new ArrayList<>();
+    // private List<Ship> ships = new ArrayList<>();
+    private List<Square> boardSquaresList;
+    private List<Square> shipsSquaresList = new ArrayList<>();
     private Square[][] board;
     private int boardSize;
 
@@ -22,9 +22,9 @@ public class Ocean {
     public Square[][] createBoard(int boardSize) {
         board = new Square[boardSize][boardSize];
         shipsSquaresList = new ArrayList<>();
-        for (int i=0; i<boardSize; i++) {
-            for (int j=0; j< boardSize; j++) {
-                Square area = new Square(i,j);
+        for (int i = 0; i < boardSize; i++) {
+            for (int j = 0; j < boardSize; j++) {
+                Square area = new Square(i, j);
                 board[i][j] = area;
                 boardSquaresList.add(area);
             }
@@ -32,7 +32,7 @@ public class Ocean {
         return board;
     }
 
-    public void addSquareAreaToShipsSquaresList(Square area){
+    public void addSquareAreaToShipsSquaresList(Square area) {
         this.shipsSquaresList.add(area);
     }
 
@@ -48,18 +48,18 @@ public class Ocean {
         return this.board;
     }
 
-    public ArrayList<Square> getBoardSquaresList() {
+    public List<Square> getBoardSquaresList() {
         return this.boardSquaresList;
     }
 
-    public ArrayList<Square> getShipsSquaresList() {
+    public List<Square> getShipsSquaresList() {
         return this.shipsSquaresList;
     }
 
-    public void setAreaUnavailable(){
-        for (Square element :getShipsSquaresList()) {
-            for (int i = -1; i < 2; i++){
-                for (int j = -1; j <2; j++) {
+    public void setAreaUnavailable() {
+        for (Square element : getShipsSquaresList()) {
+            for (int i = -1; i < 2; i++) {
+                for (int j = -1; j < 2; j++) {
                     int coordinateX = element.getCoordinateX() + j;
                     int coordinateY = element.getCoordinateY() + i;
                     if (coordinateX >= 0 && coordinateX < 10 && coordinateY >= 0 && coordinateY < 10) {
@@ -70,51 +70,59 @@ public class Ocean {
         }
     }
 
-    //place ship on board and add to ships and boardsquare list. return true is ship placed
+    // place ship on board and add to ships and boardsquare list. return true is
+    // ship placed
     public boolean placeShipOnBoard(Ship shipToPlace) {
         if (shipToPlace.getOrientation().equals("h")) {
             for (int i = shipToPlace.getCoordinateX(); i < shipToPlace.getCoordinateX()
                     + shipToPlace.getShipLength(); i++) {
                 this.getBoard()[shipToPlace.getCoordinateY()][i].setSquareStatus("ship");
                 Square area = this.getSquare(shipToPlace.getCoordinateY(), i);
-                shipToPlace.addSquaretoShipSquaresList(area); //adding to one ship list
-                this.addSquareAreaToShipsSquaresList(area); //adding to all ships list
+                shipToPlace.addSquaretoShipSquaresList(area); // adding to one ship list
+                this.addSquareAreaToShipsSquaresList(area); // adding to all ships list
             }
         } else if (shipToPlace.getOrientation().equals("v")) {
             for (int i = shipToPlace.getCoordinateY(); i < shipToPlace.getCoordinateY()
                     + shipToPlace.getShipLength(); i++) {
                 this.getBoard()[i][shipToPlace.getCoordinateX()].setSquareStatus("ship");
                 Square area = this.getSquare(i, shipToPlace.getCoordinateX());
-                shipToPlace.addSquaretoShipSquaresList(area); //adding to one ship list
-                this.addSquareAreaToShipsSquaresList(area); //adding to all ships list
+                shipToPlace.addSquaretoShipSquaresList(area); // adding to one ship list
+                this.addSquareAreaToShipsSquaresList(area); // adding to all ships list
             }
-            // return true;
+            return true;
         }
         return false;
     }
 
-
     public void checkIfPlacementAvailable() {
-        //to do
+        // to do
     }
-
-
-
 
     // to be used later
     // public void setBombs() {
-    //     Random r = new Random();
-    //     for (int iterator = 0; iterator <= 5; iterator++) {
-    //         int x = r.nextInt(10);
-    //         int y = r.nextInt(10);
-    //         for (int i = 0; i < 10; i++) {
-    //             for (int j = 0; j < 10; j++) {
-    //                 if (i == x && j == y) {
-    //                     board[i][j].setSign("B");
-    //                 }
-    //             }
-    //         }
-    //     }
+    // Random r = new Random();
+    // for (int iterator = 0; iterator <= 5; iterator++) {
+    // int x = r.nextInt(10);
+    // int y = r.nextInt(10);
+    // for (int i = 0; i < 10; i++) {
+    // for (int j = 0; j < 10; j++) {
+    // if (i == x && j == y) {
+    // board[i][j].setSign("B");
     // }
-}
+    // }
+    // }
+    // }
+    // }
 
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[i].length; j++) {
+                sb.append(board[i][j].toString());
+            }
+            sb.append("\n");
+        }
+        return sb.toString();
+    }
+
+}

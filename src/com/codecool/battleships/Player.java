@@ -1,23 +1,24 @@
 package com.codecool.battleships;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Player {
     private int player;
-    private boolean human;  // jeśli is true to scaner do statku, a jak false to if/else i radnomowo ustawi
+    private boolean human;  // jeśli is true to scaner do statku, a jak false to if/else i randomowo ustawi
 
     public Player(int player) {
         this.player = player;
     }
     private boolean isHuman;
     private Ocean playerBoard;
-    private ArrayList<Ship> listOfSips;
+    private List<Ship> listOfSips;
 
 
     public Ocean createPlayerBoard() {
         int boardSize = 10;
-        ArrayList<Ship> list = new ArrayList<>();
+        List<Ship> list = new LinkedList<>();
         Ocean board = new Ocean(boardSize);
         boolean doesItFit = true;
         for (String key : Tools.shipTypeAndLength.keySet()) {
