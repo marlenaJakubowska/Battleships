@@ -4,29 +4,39 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.HashMap;
+
 
 public class UI {
     private Scanner input = new Scanner(System.in);
+    static PlayerTest player = new PlayerTest();
+
+    // public static void lol() {
+    //     Tools.createHashMaps();
+    //     player.createPlayerBoard();
+    // }
+
     HumanPlayer humanPlayer = new HumanPlayer(1, null);
-    HumanPlayer humanPlayer2= new HumanPlayer(2, null);
-    ComputerPlayer computerPlayer = new ComputerPlayer(0, 0);
+    HumanPlayer humanPlayer2 = new HumanPlayer(2, null);
+    ComputerPlayer computerPlayer = new ComputerPlayer(0, "Bot");
     private Boolean isRunning = true;
     private List<String> options = Arrays.asList("SinglePlayer", "Multiplayer", "Simulation", "Exit");
     private List<String> difficulties = Arrays.asList("Easy", "Medium", "Hard");
 
-  public void printList(List<String> list) {
+    public void printList(List<String> list) {
         System.out.println();
         for (String option : list) {
             System.out.println((list.indexOf(option) + 1) + ". " + option);
         }
     }
+
     public void printMainMenu() {
         System.out.println("Main menu");
         System.out.println("1. New game");
         System.out.println("2. Exit");
     }
-    
- public String getString() {
+
+    public String getString() {
         String userString = input.nextLine();
         return userString;
     }
@@ -36,7 +46,7 @@ public class UI {
         return Integer.parseInt(userInt);
     }
 
-   public void showGameBoard(Square[][] gameBoard) {
+    public void showGameBoard(Square[][] gameBoard) {
         int iterator = 0;
         System.out.println("|---------------------|");
         System.out.print("|");
@@ -50,10 +60,10 @@ public class UI {
                 }
             }
         }
-        System.out.println("---------------------|");        
+        System.out.println("---------------------|");
     }
 
- public void printMap(Map<String, Integer> map) {
+    public void printMap(Map<String, Integer> map) {
         System.out.println("Name of the ship (lenght): ");
         int i = 1;
         for (Map.Entry<String, Integer> entry : map.entrySet()) {
@@ -62,6 +72,27 @@ public class UI {
         }
     }
 
+    public static void switchDifficulty(int difficulty) {
+
+        switch (difficulty) {
+            case 1: {
+                Tools.createHashMaps();
+                player.createPlayerBoard();
+        //     System.out.println("easy");
+            break;
+        }
+        case 2:
+        {
+            System.out.print("Difficulty level- medium");
+            break;
+        }
+        case 3:
+        {
+            System.out.print("Difficulty level- hard");
+            break;
+        }
+    }
+}
 public void start() {
         while (isRunning) {
             printMainMenu();
@@ -78,18 +109,18 @@ public void start() {
                         humanPlayer.setPlayerName(getString());
                         humanPlayer.setPlayerNumber(1);
                         computerPlayer.setPlayerNumber(2);
-                        // System.out.println(humanPlayer.getPlayerName());
-                        // player.setPlayer2(new Player("Bot"));
                         printList(difficulties);
                         int difficulty = getInt();
-   
+                        switchDifficulty(difficulty);
                         break;  
                 }
                 case 2:
                 {   System.out.println("Enter Player 1 name :");
                     humanPlayer.setPlayerName(getString());
+                    humanPlayer.setPlayerNumber(1);
                     System.out.println("Enter Player 2 name :");
                     humanPlayer2.setPlayerName(getString());
+                    humanPlayer2.setPlayerNumber(2);
                   
                     break;
                 }

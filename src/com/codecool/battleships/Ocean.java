@@ -88,7 +88,7 @@ public class Ocean {
                 shipToPlace.addSquaretoShipSquaresList(area); //adding to one ship list
                 this.addSquareAreaToShipsSquaresList(area); //adding to all ships list
             }
-            return true;
+            // return true;
         }
         return false;
     }

@@ -16,9 +16,9 @@ public class Square {
         this.isAvailable = true;
     }
 
-//    public Square() {
-//        this.squareStatus = "empty";
-//    }
+   public Square() {
+       this.squareStatus = "empty";
+   }
 
     public void setSquareStatus(String squareStatus) {
         this.squareStatus = squareStatus;
